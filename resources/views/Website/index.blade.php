@@ -28,7 +28,7 @@ lamjons
 			</div>
 			<div class="top-button-adjust">
 				<div class="main-button">
-					<button type="button" class="custom-btn">Join Lam Jones</button>
+					<a href="{{ route('signin') }}"><button type="button" class="custom-btn">Join Lam Jones</button></a>
 					<div class="bg-button"></div>
 					<div class="bg-button2"></div>
 				</div>
@@ -68,7 +68,14 @@ lamjons
 					<div class="bg-button2"></div>
 						</div>
 					</div>
-
+					<div class="col-lg-3 col-md-6">
+						<div class="main-button">
+							<button type="button" class="custom-btn"><a href="{{ route('profile') }}" class="text-decoration-none text-white">
+                                Browse Artists</a></button>
+							<div class="bg-button"></div>
+					<div class="bg-button2"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

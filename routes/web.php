@@ -88,7 +88,7 @@ Route::middleware(['user_auth'])->group(function () {
 });
 
 Route::view('available','Website.available_form');
-Route::view('signin','Website.signin_page');
+Route::view('signin','Website.signin_page')->name('signin');
 Route::view('looking-for','Website.looking_for');
 Route::view('hired-gun','Website.hired_gun');
 Route::view('forum','Website.looking_for');
@@ -96,5 +96,15 @@ Route::get('browse_posts',[WebController::class,'posts'])->name('posts');
 Route::post('signup_user',[WebController::class,'signup_user'])->name('signup_user');
 Route::get('view_post/{id}',[WebController::class,'single_post'])->name('posts');
 
+Route::get('profile',[WebController::class,'profile'])->name('profile');
+Route::get('edit/profile',[WebController::class,'edit_profile'])->name('edit-profile');
+Route::post('update/profile',[WebController::class,'update_profile'])->name('update-profile');
+
+
+Route::view('welcome','Website.welcome')->name('welcome');
+
+
+
 
 Route::post('form_submission',[WebController::class, 'form_submission'])->name('form_submission');
+

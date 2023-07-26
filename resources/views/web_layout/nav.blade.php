@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="align-header-main">
 			<div class="links-header">
-<a href="/"><img src="{{ asset('assets/img/logo.png') }}" width="100px" alt=""></a>
+<a href="/" class="logos"><img src="{{ asset('assets/img/house-chimney-solid.svg') }}" width="100px" alt=""></a>
 			</div>
 			<div class="header-social">
 				<div class="align-icons-header">
@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="links-header text-right">
-				<a href="/signin">Member Sign In</a>
+				<a href="{{ route('welcome') }}">Member Sign In</a>
 				{{-- <a href="#">Lam Jones Merch</a> --}}
 			</div>
 		</div>

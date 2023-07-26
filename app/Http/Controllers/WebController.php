@@ -59,7 +59,111 @@ class WebController extends Controller
         $user->zip=$request->zip;
         $user->account_type='user';
         $user->save();
-        return redirect()->back()->with('success','You have Signup Successfully');
+        $request->session()->put('user', $user);
+        return redirect(route('welcome'))->with('success','You have Signup Successfully');
 
     }
+    public function profile(){
+
+        $users=session('user');
+        $user=User::where('id',$users->id)->first();
+        return view('Website.artists',compact('user'));
+    }
+    public function edit_profile(){
+        $users=session('user');
+        $user=User::where('id',$users->id)->first();
+        return view('Website.edit-artist',compact('user'));
+
+    }
+    public function update_profile(Request $request)
+    {
+    $request->validate([
+        'profile_pic' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'first_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'second_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'second_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'third_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'four_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'five_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'background_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+    ]);
+
+    $session = session('user');
+    if ($session) {
+        $user = User::where('id', $session->id)->first();
+$user->name=$request->username;
+        // if ($request->hasFile('profile_pic')) {
+        //     $user->profile_image = $request->file('profile_pic')->store('profile_images');
+        // }
+
+        if ($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+            $fileName = $user->name.$user->id.'.jpg';
+            $file->move(public_path('assets/user_profile'), $fileName);
+            $user->profile_image = 'assets/user_profile/' . $fileName;
+        }
+        $user->description = $request->input('description');
+
+
+        if ($request->hasFile('first_image')) {
+            $file = $request->file('first_image');
+            $fileName = $user->name.$user->id.'first_image.jpg';
+            $file->move(public_path('assets/user_images'), $fileName);
+            $user->first_image = 'assets/user_images/' . $fileName;
+        }
+
+        if ($request->hasFile('second_image')) {
+            $file = $request->file('second_image');
+            $fileName = $user->name.$user->id.'second_image.jpg';
+            $file->move(public_path('assets/user_images'), $fileName);
+            $user->second_image = 'assets/user_images/' . $fileName;
+        }
+
+        if ($request->hasFile('third_image')) {
+            $file = $request->file('third_image');
+            $fileName = $user->name.$user->id.'third_image.jpg';
+            $file->move(public_path('assets/user_images'), $fileName);
+            $user->third_image = 'assets/user_images/' . $fileName;
+        }
+        if ($request->hasFile('four_image')) {
+            $file = $request->file('four_image');
+            $fileName = $user->name.$user->id.'four_image.jpg';
+            $file->move(public_path('assets/user_images'), $fileName);
+            $user->four_image = 'assets/user_images/' . $fileName;
+        }
+
+
+        if ($request->hasFile('five_image')) {
+            $file = $request->file('five_image');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('assets/user_images'), $fileName);
+            $user->five_image = 'assets/user_images/' . $fileName;
+        }
+
+        if ($request->hasFile('background_image')) {
+            $file = $request->file('background_image');
+            $fileName = $user->name.$user->id.'background_image.jpg';
+            $file->move(public_path('assets/user_profile'), $fileName);
+            $user->background_image = 'assets/user_profile/' . $fileName;
+        }
+        // if ($request->hasFile('profile_pic')) {
+        //     $file = $request->file('profile_pic');
+        //     $fileName = $user->name.$user->id.'.jpg';
+        //     $file->move(public_path('assets/user_profile'), $fileName);
+        //     $user->profile_image = 'assets/user_profile/' . $fileName;
+        // }
+        $user->privacy = $request->input('privacy');
+        $user->first_link = $request->input('first_link');
+        $user->second_link = $request->input('second_link');
+        $user->third_link = $request->input('third_link');
+        $user->fourth_link = $request->input('fourth_link');
+        $user->fifth_link = $request->input('fifth_link');
+        $user->updated_at = now();
+        $user->save();
+$request->session()->put('user', $user);
+return redirect()->back()->with('success','Profle has been updated');
+    }
 }
+
+        }
+
