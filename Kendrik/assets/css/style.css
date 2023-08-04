@@ -320,9 +320,7 @@ section#logo-section-main {
     justify-content: center;
 }
 
-.top-button-adjust .main-button:nth-child(2) {
-	margin-left: 5em;
-}
+
 
 
 .new-buttons-main {
@@ -435,7 +433,7 @@ footer {
 .form-page-logo img {
     max-height: 200px;
     mix-blend-mode: darken;
-}	
+}
 
 .new-buttons-main .main-button  {
 	margin-bottom: 1em;
@@ -475,7 +473,7 @@ footer {
 .available-form-text h3 , .title-skill-level h4 , .title-looking h3 , .right-form-text a {
     font-family: 'Enriqueta', serif;
 
-} 
+}
 
 .new-buttons-main .col-md-6 {
     padding: 0;
@@ -494,7 +492,7 @@ footer {
     }
 	.about-text {
     	padding: 0 0em 2em 0em;
-	} 
+	}
 	.new-buttons-main {
 		max-width: 100%;
 	}

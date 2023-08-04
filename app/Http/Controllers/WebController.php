@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
@@ -163,6 +165,34 @@ $user->name=$request->username;
 $request->session()->put('user', $user);
 return redirect()->back()->with('success','Profle has been updated');
     }
+}
+public function user_login(Request $request){
+$request->validate([
+'email'=>'required|exists:users,email|email',
+'password'=>'required|string'
+]);
+
+$users=User::where('email',$request->email)->first();
+if(Hash::check($request->password,$users->password)){
+$request->session()->put('user', $users);
+    return redirect()->back()->with('success','Login Successfully '.$users->name.'');
+}
+return redirect()->back()->withErrors('Credentials are not matching');
+
+}
+public function user_logout(Request $request){
+session()->forget('user');
+return redirect()->route('/')->with('success','Logout successfully');
+}
+public function message_send(Request $request){
+    $request->validate(['message'=>'required|string']);
+$sender=session('user')->name;
+$content=$request->message;
+Mail::raw($content, function ($message) {
+    $message->to('zubair918sharif@gmail.com')
+      ->subject(session('user')->email);
+  });
+return redirect()->back()->with('success',"Message has been sent to email");
 }
 
         }

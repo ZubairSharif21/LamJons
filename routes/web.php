@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\WebController\HomeController as WebControllerHomeController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -92,19 +93,28 @@ Route::view('signin','Website.signin_page')->name('signin');
 Route::view('looking-for','Website.looking_for');
 Route::view('hired-gun','Website.hired_gun');
 Route::view('forum','Website.looking_for');
+Route::view('message','Website.message')->name('message');
 Route::get('browse_posts',[WebController::class,'posts'])->name('posts');
 Route::post('signup_user',[WebController::class,'signup_user'])->name('signup_user');
 Route::get('view_post/{id}',[WebController::class,'single_post'])->name('posts');
+Route::middleware('auth_check')->group(function () {
 
-Route::get('profile',[WebController::class,'profile'])->name('profile');
-Route::get('edit/profile',[WebController::class,'edit_profile'])->name('edit-profile');
+    Route::get('profile',[WebController::class,'profile'])->name('profile');
+    Route::get('edit/profile',[WebController::class,'edit_profile'])->name('edit-profile');
 Route::post('update/profile',[WebController::class,'update_profile'])->name('update-profile');
-
-
 Route::view('welcome','Website.welcome')->name('welcome');
+
+
+Route::get('user-logout',[WebController::class,'user_logout'])->name('user-logout');
+Route::post('message_send',[WebController::class,'message_send'])->name('message_send');
+});
+
+
 
 
 
 
 Route::post('form_submission',[WebController::class, 'form_submission'])->name('form_submission');
+
+Route::post('user-login',[WebController::class, 'user_login'])->name('user_login');
 

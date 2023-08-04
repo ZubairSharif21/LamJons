@@ -53,7 +53,7 @@ Sign in Lamjons
 									</div>
 									<div class="col-md-6">
 										<div class="input-field-main">
-											<label>Pass-word*</label>
+											<label>Password*</label>
 											<input type="password" name="password">
 										</div>
 									</div>

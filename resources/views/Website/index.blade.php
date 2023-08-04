@@ -26,17 +26,25 @@ lamjons
 				<h3>What is Lam Jones?</h3>
 				<p>Lam Jones is collaboration. It is a website for musicians, artists and producers. A place to recruit the talent you need to execute your vision. Need a guitar riff to flesh out the song you've just recorded? Need that singer who can take your song to the next level? Need a mixer to make your track radio ready?                                               Lam Jones connects you with collaborators to get it done.</p>
 			</div>
-			<div class="top-button-adjust">
-				<div class="main-button">
-					<a href="{{ route('signin') }}"><button type="button" class="custom-btn">Join Lam Jones</button></a>
-					<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-				</div>
-				<div class="main-button">
-					<button type="button" class="custom-btn"><a href="browse_posts" class="text-decoration-none text-white">Browse Posts</a></button>
-					<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-				</div>
+            <div class="row  justify-content-center">
+			<div class="top-button-adjust w-75 justify-content-between">
+                    <div class="main-button">
+                        <a href="{{ route('signin') }}"><button type="button" class="custom-btn">Join Lam Jones</button></a>
+                        <div class="bg-button"></div>
+                        <div class="bg-button2"></div>
+                    </div>
+                    <div class="main-button">
+                        <a href="{{ route('profile') }}"><button type="button" class="custom-btn">Browse Artists    </button></a>
+                        <div class="bg-button"></div>
+                        <div class="bg-button2"></div>
+                    </div>
+
+                    <div class="main-button">
+                        <button type="button" class="custom-btn"><a href="browse_posts" class="text-decoration-none text-white">Browse Posts</a></button>
+                        <div class="bg-button"></div>
+                        <div class="bg-button2"></div>
+                    </div>
+                </div>
 			</div>
 			<div class="new-buttons-main">
 				<div class="row">
@@ -68,14 +76,7 @@ lamjons
 					<div class="bg-button2"></div>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="main-button">
-							<button type="button" class="custom-btn"><a href="{{ route('profile') }}" class="text-decoration-none text-white">
-                                Browse Artists</a></button>
-							<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</div>

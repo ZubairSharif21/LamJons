@@ -24,10 +24,10 @@
         }
 
         .background-image img {
-            height: 300px !important;
-            position: relative;
-        }
-
+    height: 313px !important;
+    position: relative;
+    object-fit: fill;
+}
 
 
         .links {
@@ -44,8 +44,10 @@
 
         .texts p {
             line-height: 2.0;
-        }
-
+                height: auto !important;
+    background: #ffff45b0;
+    padding: 25px;
+}
         .link-tags {
 
             font-weight: bold;
@@ -90,7 +92,7 @@ header {
     </style>
 @endsection
 @section('title')
-    Welcome to LamJons
+   User Profile
 @endsection
 @section('content')
     <main>
@@ -124,8 +126,31 @@ header {
                         <button class="links rounded-pill bg-light fw-bold">
                             Upload song, video, or social profile links here:</button>
                         <div class=" link-tags">
-<ul>
-@if ( $user->first_link )
+
+<div class="card" style="width: 400px">
+    <div class="card-body">
+<h5>Why are you flagging this profile?</h5>
+<div class="form-check form-check-inline">
+    <label class="form-check-label" for="inlineCheckbox1">Option 1</label>
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  </div>
+  <div class="form-check form-check-inline">
+      <label class="form-check-label" for="inlineCheckbox2">Option 2</label>
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  </div>
+  <div class="form-check form-check-inline">
+      <label class="form-check-label" for="inlineCheckbox3">Option 3</label>
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+  </div>
+    </div>
+</div>
+                            <ul>
+
+
+                                <button class="links rounded-pill bg-light fw-bold w-50 mt-5 ">
+                                    <a href="{{ route('message') }}">Message "User-Name"</a></button>
+
+                                @if ( $user->first_link )
 
 <li>
     <a href="{{ $user->first_link }}">This is my Facebook page with other songs. </a>
@@ -192,7 +217,7 @@ header {
                 </div>
                 <div class="carasoul">
                     <div class="col-10 text-center mt-5 pb-5" style="padding-bottom: 84px !important;">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between" style="height: 200px !important">
 
 @if ($user->first_image)
 
