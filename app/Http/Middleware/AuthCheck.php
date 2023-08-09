@@ -18,7 +18,7 @@ class AuthCheck
      if(session('user')){
         return $next($request);
      }else{
-        return redirect()->route('/')->withErrors('Login First To Access');
+        return redirect()->back()->withErrors('Only Lam Jones members can do that!');
      }
     }
 }

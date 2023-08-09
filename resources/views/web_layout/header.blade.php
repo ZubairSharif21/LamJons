@@ -17,10 +17,10 @@
         width: 14% !important;
 
     }
-   header a img {
-    background: white;
-    width: 100%;
-    padding: 2px;
+    header a img {
+    /* background: white; */
+    width: 40px;
+    /* padding: 2px; */
 }
 .modal-backdrop{
     display: none;

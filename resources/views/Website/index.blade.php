@@ -3,7 +3,7 @@
 lamjons
 @endsection
 @section('content')
-<main>
+<main style="padding-top: 50px">
 	<section id="logo-section-main">
 		<div class="container">
 			<div class="logo-with-text">
@@ -28,54 +28,43 @@ lamjons
 			</div>
             <div class="row  justify-content-center">
 			<div class="top-button-adjust w-75 justify-content-between">
-                    <div class="main-button">
-                        <a href="{{ route('signin') }}"><button type="button" class="custom-btn">Join Lam Jones</button></a>
-                        <div class="bg-button"></div>
-                        <div class="bg-button2"></div>
-                    </div>
-                    <div class="main-button">
-                        <a href="{{ route('profile') }}"><button type="button" class="custom-btn">Browse Artists    </button></a>
+                <div class="main-button">
+                    <button type="button" class="custom-btn"><a href="{{ url('create_post') }}" class="text-decoration-none text-white">Create Posts</a></button>
+                    <div class="bg-button"></div>
+                    <div class="bg-button2"></div>
+                </div>
+
+
+                <div class="main-button">
+                    <button type="button" class="custom-btn"><a href="browse_posts" class="text-decoration-none text-white">Browse Posts</a></button>
+                    <div class="bg-button"></div>
+                    <div class="bg-button2"></div>
+                </div>
+                <div class="main-button">
+                    <a href="{{ route('profile') }}"><button type="button" class="custom-btn">Browse Artists    </button></a>
+
+                    <div class="bg-button"></div>
+                    <div class="bg-button2"></div>
+                </div>
+                     <div class="main-button">
+                        <button type="button" class="custom-btn"><a href="forum" class="text-decoration-none text-white">Browse Music</a></button>
                         <div class="bg-button"></div>
                         <div class="bg-button2"></div>
                     </div>
 
-                    <div class="main-button">
-                        <button type="button" class="custom-btn"><a href="browse_posts" class="text-decoration-none text-white">Browse Posts</a></button>
-                        <div class="bg-button"></div>
-                        <div class="bg-button2"></div>
-                    </div>
                 </div>
 			</div>
 			<div class="new-buttons-main">
-				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="main-button">
-							<button type="button" class="custom-btn"><a href="looking-for" class="text-decoration-none text-white">Looking For</a></button>
-							<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="main-button">
-							<button type="button" class="custom-btn"><a href="available" class="text-decoration-none text-white">Available</a>	</button>
-							<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="main-button">
-							<button type="button" class="custom-btn"><a href="hired-gun" class="text-decoration-none text-white">Hired Guns</a></button>
-							<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="main-button">
-							<button type="button" class="custom-btn"><a href="forum" class="text-decoration-none text-white">Forum</a></button>
-							<div class="bg-button"></div>
-					<div class="bg-button2"></div>
-						</div>
-					</div>
+				<div class="row ">
+
+
+                    <div class="col-lg-3 col-md-6 mx-auto">
+                        <div class="main-button">
+                            <button type="button" class="custom-btn "><a href="{{ route('signin') }}" class="text-decoration-none ">Join Lam Jones</a>	</button>
+                            <div class="bg-button"></div>
+                    <div class="bg-button2"></div>
+                        </div>
+                    </div>
 
 				</div>
 			</div>

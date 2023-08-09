@@ -39,7 +39,7 @@ class WebController extends Controller
         return redirect()->back()->with('success','Form has been submit');
     }
     public function posts(){
-        $posts=category::all();
+$posts = Category::orderByDesc('created_at')->get();
         return view('Website.posts',compact('posts'));
     }
     public function single_post($id){
@@ -175,7 +175,8 @@ $request->validate([
 $users=User::where('email',$request->email)->first();
 if(Hash::check($request->password,$users->password)){
 $request->session()->put('user', $users);
-    return redirect()->back()->with('success','Login Successfully '.$users->name.'');
+    return redirect()->route('welcome')->with('success','Congrats!
+    You Have Joined Successfully '.$users->name.'!');
 }
 return redirect()->back()->withErrors('Credentials are not matching');
 

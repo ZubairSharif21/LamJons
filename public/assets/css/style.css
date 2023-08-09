@@ -271,7 +271,7 @@ section#logo-section-main {
 
 .main-button button {
     background-color: #000;
-    padding: 12px 40px;
+    padding: 0px 40px;
 /*    border-radius: 4px;*/
     transition: .3s linear;
     color: #fff;
@@ -302,12 +302,11 @@ section#logo-section-main {
     top: -9px;
     z-index: -1;
 }
-
 .bg-button2 {
-    background: url('../img/button-bg-bottom.svg') no-repeat;
+    background: url(../img/button-bg-bottom.svg) no-repeat;
     background-position: bottom;
-    bottom: -10.49px;
-    top: 53px;
+    bottom: -25.49px;
+    top: 29px;
     position: absolute;
     transform: scaleY(-1);
     z-index: -1;
@@ -377,13 +376,11 @@ footer {
     display: block;
     width: 100%;
     font-size: 14px;
-    font-weight: 500;
 }
 
 .input-field-main input , .input-field-main textarea , .input-field-main select {
     width: 100%;
     padding: 6px;
-    border: none;
     font-size: 14px;
 }
 
@@ -427,12 +424,13 @@ footer {
 }
 
 .form-page-logo {
-    text-align: center;
+    text-align: start;
+    margin-left: 11%;
     margin-bottom: 1em;
 }
 
 .form-page-logo img {
-    max-height: 200px;
+    max-height: 300px;
     mix-blend-mode: darken;
 }
 

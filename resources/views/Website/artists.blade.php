@@ -24,11 +24,11 @@
         }
 
         .background-image img {
-    height: 313px !important;
+    height: 253px !important;
+    margin-top: 70px !important;
     position: relative;
     object-fit: fill;
 }
-
 
         .links {
             background: lavender;
@@ -61,7 +61,7 @@ list-style-type: none;
     margin: 20px auto;
     max-width: 164px;
     position: absolute;
-    top: 25vh;
+    top: 30vh;
     left: 44vw;
     border-radius: 50%;
 }
@@ -100,12 +100,21 @@ header {
         <section id="main-pages" class="">
             <div class="mb-5">
                 <div class="background-image">
-                    <img src="{{ asset($user->background_image) }}" alt="" class="w-100 mt-1">
+@if ($user->background_image)
+<img src="{{ asset($user->background_image) }}" alt="" class="w-100 mt-1">
+@else
+<img src="{{ asset('assets/img/background-img.webp') }}" alt="" class="w-100 mt-1">
+@endif
                 </div>
 
                 <div class="profile">
-                    <img id="blah"src="{{ asset($user->profile_image) }}" alt="Image not Found"
-                        style="width: 150px !important;height: 150px !important;background:#cfcfcf !important">
+@if ($user->profile_image)
+<img id="blah"src="{{ asset($user->profile_image) }}" alt="Image not Found"
+style="width: 150px !important;height: 150px !important;background:#cfcfcf !important">
+@else
+<img id="blah"src="{{ asset('assets/user_images/default.png') }}" alt="Image not Found"
+style="width: 150px !important;height: 150px !important;background:#cfcfcf !important">
+@endif
 
                 </div>
 
@@ -119,7 +128,11 @@ header {
 
 
                         <p class="fw-bold">
-                      {{ $user->description }}
+@if ($user->description)
+{{ $user->description }}
+@else
+<span class="text-info">User has not added description yet</span>
+@endif
                         </p>
                     </div>
                     <div class="col-5">
@@ -148,7 +161,7 @@ header {
 
 
                                 <button class="links rounded-pill bg-light fw-bold w-50 mt-5 ">
-                                    <a href="{{ route('message') }}">Message "User-Name"</a></button>
+                                    <a href="{{ route('message') }}">Message "{{ $user->name }}"</a></button>
 
                                 @if ( $user->first_link )
 

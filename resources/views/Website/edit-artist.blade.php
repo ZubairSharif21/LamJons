@@ -27,13 +27,17 @@
             background-color: #000;
             padding: 5px 0 !important;
         }
-
         .background-image img {
-            height: 300px !important;
-            position: relative;
-        }
+    height: 253px !important;
+    margin-top: 70px !important;
+    position: relative;
+    object-fit: fill;
+}
 
-
+.images_footer img{
+max-height: 140px;
+min-height: 140px;
+}
 
         .links {
             background: lavender;
@@ -66,7 +70,7 @@
             margin: 20px auto;
             max-width: 164px;
             position: absolute;
-            top: 25vh;
+            top: 30vh;
             left: 44vw;
             border-radius: 50%;
         }
@@ -170,7 +174,7 @@
                         </div>
 
                         </p>
-
+<div class="images_footer">
 
                         <div class="row  align-items-center ">
                             <div class="col-3">
@@ -239,7 +243,7 @@
                         </div>
 
 
-
+                    </div>
                     </div>
 
                     <div class="col-5">
