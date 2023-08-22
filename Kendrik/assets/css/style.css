@@ -398,7 +398,7 @@ footer {
 }
 
 .submit-btn.big-button .main-button .bg-button {
-    top: -14.49px;
+    top: -10.49px;
 }
 
 .align-form {
@@ -451,6 +451,7 @@ footer {
 
 .align-skill-level .form-check label {
 	font-weight: 600;
+    width: 100px;
 }
 
 .logo-main-looking {

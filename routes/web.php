@@ -114,6 +114,7 @@ Route::post('message_send',[WebController::class,'message_send'])->name('message
 
 Route::view('create_post','Website.create-posts')->name('create-post');
 Route::view('faq','Website.faq')->name('faq');
+Route::view('skill-level','Website.skill-level')->name('skill-level');
 Route::post('form_submission',[WebController::class, 'form_submission'])->name('form_submission');
 
 

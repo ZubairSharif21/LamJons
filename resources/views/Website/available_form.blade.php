@@ -100,11 +100,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="align-skill-level">
+                                            <div class="align-skill-level d-flex align-items-center">
                                                 <div class="title-skill-level">
                                                     <h4>Skill Level:</h4>
                                                 </div>
-                                                <div class="row">
+                                                <div class="d-flex flex-column align-items-center">
                                                     <div class="col-md-4">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="skills" id="ready" value="ready"
@@ -133,8 +133,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
+
                                         </div>
+                                        <a href="skill-level" class="text-dark ms-5">What do these Skill Levels mean?</a>
 
                                         <div class="col-md-12">
                                             <div class="input-field-main">
@@ -145,7 +148,7 @@
                                     </div>
                                     <div class="submit-btn big-button">
                                         <div class="main-button">
-                                            <button type="submit" class="custom-btn">- Now Click This Button -</button>
+                                            <button type="submit" class="custom-btn">Post</button>
                                             <div class="bg-button">
                                             </div>
                                             <div class="bg-button2">
