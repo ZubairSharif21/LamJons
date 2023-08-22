@@ -3,6 +3,13 @@
 lamjons
 @endsection
 @section('content')
+@section('head')
+<style>
+    .quotes {display: none;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+@endsection
 <main style="padding-top: 50px">
 	<section id="logo-section-main">
 		<div class="container">
@@ -13,9 +20,15 @@ lamjons
 				<div class="logo-align">
 					<img src="./assets/img/logo.png" class="img-fluid">
 					<img src="./assets/img/headphones.png" class="img-fluid">
-					<h3  class="typewrite" data-period="2000" data-type='[ "Where Musicians Meet Musicians.", "Where Creative People Connect.", "Where Musicians Meet Musicians.", "Where Collaboration Happens." ]'>
+					{{-- <h3  class="typewrite" data-period="2000" data-type='[ "Where Musicians Meet Musicians.", "Where Creative People Connect.", "Where Musicians Meet Musicians.", "Where Collaboration Happens." ]'>
 						<span class="wrap"></span>
-					</h3>
+					</h3> --}}
+                    <div class="container">
+                        <h2 class="quotes">Where Musicians Meet Musicians
+
+                        </h2>
+
+                      </div>
 				</div>
 			</div>
 		</div>
@@ -72,4 +85,24 @@ lamjons
 	</section>
 </main>
 
+@endsection
+@section('scripts')
+<script>
+    (function() {
+
+var quotes = $(".quotes");
+var quoteIndex = -1;
+
+function showNextQuote() {
+  ++quoteIndex;
+  quotes.eq(quoteIndex % quotes.length)
+    .fadeIn(1000)
+    .delay(1000)
+    .fadeOut(1000, showNextQuote);
+}
+
+showNextQuote();
+
+})();
+</script>
 @endsection

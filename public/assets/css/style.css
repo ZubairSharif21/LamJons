@@ -196,9 +196,8 @@ header {
     display: flex;
     align-items: center;
 }
-
 .link-social-header a {
-    font-size: 34px;
+    font-size: 45px;
     text-decoration: none;
     margin: 0 14px;
     color: #fff !important;

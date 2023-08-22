@@ -5,13 +5,18 @@
 
         <div class="align-header-main">
             <div class="links-header">
-                <a href="/" class="logos"><img src="{{ asset('assets/img/home-logo.png') }}" width="100px"
+                <a href="/" ><img src="{{ asset('assets/img/home-logo.png') }}" width="100px"
                         alt=""></a>
+                    {{-- <a href="{{ route('faq') }}" class="text-center">FAQ</a> --}}
+
             </div>
             <div class="header-social">
                 <div class="align-icons-header">
                     <div class="link-social-header">
                         <a href="#"> <i class='bx bxl-instagram'></i> </a>
+                    </div>
+                    <div class="link-social-header">
+                        <a href="#"> <i class='bx bxl-facebook'></i> </a>
                     </div>
                     <div class="link-social-header">
                         <a href="#"> <i class='bx bxl-twitter'></i> </a>
@@ -25,7 +30,8 @@
                 @if (session('user'))
                     <a href="{{ route('user-logout') }}">Logout</a>
                 @else
-                    <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#exampleModal">Member Sign In</a>
+                    <a href="javascript:void()" class="text-start" data-bs-toggle="modal" data-bs-target="#exampleModal">Member Sign In</a>
+                    <a href="javascript:void()" >Lam Jones Merch</a>
                 @endif
                 <!-- Button trigger modal -->
                 {{-- <button type="button" class="btn btn-primary" >
@@ -43,13 +49,9 @@
     </div>
 </header>
 
-
-
-
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg"> <!-- Use modal-lg class to make it larger -->
+<div class="modal fade bg-dark" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " style="max-width:680px ">
         <div class="modal-content" style="background-image: url('https://static.wixstatic.com/media/3978993e99184d5e8c21f0204cd07bca.png/v1/crop/x_0,y_0,w_150,h_150,q_85,enc_auto/3978993e99184d5e8c21f0204cd07bca.png') !important; background-color:#68AAFB">
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

@@ -539,10 +539,13 @@ a{
         transform: translateZ(0);
         margin: 0px;
     }
+    .create-section{
+        padding-top: 60px !important;
+    }
 </style>
 @endsection
 @section('content')
-<section id="comp-ljtl4h9q" tabindex="-1" class="Oqnisf comp-ljtl4h9q wixui-section">
+<section id="comp-ljtl4h9q" tabindex="-1" class="Oqnisf comp-ljtl4h9q wixui-section create-section">
     <div id="bgLayers_comp-ljtl4h9q" data-hook="bgLayers" class="MW5IWV">
         <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
         <div id="bgMedia_comp-ljtl4h9q" class="VgO9Yg"></div>
@@ -606,7 +609,7 @@ a{
                                                                 class="KcpHeO tz5f0K comp-ljtl4hb3 wixui-rich-text"
                                                                 data-testid="richTextElement">
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;"><span
+                                                                    style="font-size:17px; line-height:1.3em;"><span
                                                                         style="font-size:17px;"
                                                                         class="wixui-rich-text__text"><span
                                                                             style="font-family:barlow-medium,barlow,sans-serif;"
@@ -617,11 +620,11 @@ a{
                                                                             what?</span></span></p>
 
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;">&nbsp;
+                                                                    style="font-size:17px; line-height:1.3em;">&nbsp;
                                                                 </p>
 
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;"><span
+                                                                    style="font-size:17px; line-height:1.3em;"><span
                                                                         style="font-size:17px;"
                                                                         class="wixui-rich-text__text"><span
                                                                             style="font-family:barlow-medium,barlow,sans-serif;"
@@ -650,7 +653,7 @@ a{
                                                                 </p>
 
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;"><span
+                                                                    style="font-size:17px; line-height:1.3em;"><span
                                                                         style="font-size:17px;"
                                                                         class="wixui-rich-text__text"><span
                                                                             style="font-family:barlow-medium,barlow,sans-serif;"
@@ -659,7 +662,7 @@ a{
                                                                 </p>
 
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;"><span
+                                                                    style="font-size:17px; line-height:1.3em;"><span
                                                                         style="font-size:17px;"
                                                                         class="wixui-rich-text__text"><span
                                                                             style="font-family:barlow-medium,barlow,sans-serif;"
@@ -676,7 +679,7 @@ a{
                                                                 </p>
 
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;"><span
+                                                                    style="font-size:17px; line-height:1.3em;"><span
                                                                         style="font-size:17px;"
                                                                         class="wixui-rich-text__text"><span
                                                                             style="font-family:barlow-medium,barlow,sans-serif;"
@@ -685,7 +688,7 @@ a{
                                                                 </p>
 
                                                                 <p class="font_8 wixui-rich-text__text"
-                                                                    style="font-size:17px; line-height:1.8em;"><span
+                                                                    style="font-size:17px; line-height:1.3em;"><span
                                                                         style="font-size:17px;"
                                                                         class="wixui-rich-text__text"><span
                                                                             style="font-family:barlow-medium,barlow,sans-serif;"

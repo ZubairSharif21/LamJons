@@ -198,12 +198,11 @@ header {
 }
 
 .link-social-header a {
-    font-size: 34px;
+    font-size: 45px;
     text-decoration: none;
     margin: 0 14px;
     color: #fff !important;
 }
-
 .links-header.text-right {
 	text-align: right;
 }
