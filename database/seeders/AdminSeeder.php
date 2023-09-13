@@ -23,5 +23,11 @@ class AdminSeeder extends Seeder
         $user->account_type='admin';
         $user->save();
     }
+    $user = new User();
+    $user->name='Client';
+    $user->email='email@email.com';
+    $user->password=Hash::make('email@email.com');
+    $user->account_type='user';
+    $user->save();
     }
 }

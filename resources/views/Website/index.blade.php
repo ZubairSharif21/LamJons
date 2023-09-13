@@ -49,7 +49,7 @@ lamjons
 
 
                 <div class="main-button">
-                    <button type="button" class="custom-btn"><a href="browse_posts" class="text-decoration-none text-white">Browse Posts</a></button>
+                    <button type="button" class="custom-btn"><a href="browse-posts" class="text-decoration-none text-white">Browse Posts</a></button>
                     <div class="bg-button"></div>
                     <div class="bg-button2"></div>
                 </div>
@@ -60,7 +60,7 @@ lamjons
                     <div class="bg-button2"></div>
                 </div>
                      <div class="main-button">
-                        <button type="button" class="custom-btn"><a href="forum" class="text-decoration-none text-white">Browse Music</a></button>
+                        <button type="button" class="custom-btn"><a href="forum" class="text-decoration-none text-white">Forum</a></button>
                         <div class="bg-button"></div>
                         <div class="bg-button2"></div>
                     </div>

@@ -23,6 +23,7 @@ class WebController extends Controller
         'other_services'=>'required',
         'skills'=>'required',
         'message'=>'required',
+        'category'=>'required',
         ]);
 
 
@@ -35,12 +36,64 @@ class WebController extends Controller
         $categories->other_services=$request->input('other_services');
         $categories->skill_level=$request->input('skills');
         $categories->message=$request->input('message');
+        $categories->user_id=session('user')->id;
+        $categories->category=$request->input('category');
         $categories->save();
-        return redirect()->back()->with('success','Form has been submit');
+        return redirect()->route('browse_posts')->with('success','Form has been submit');
     }
-    public function posts(){
-$posts = Category::orderByDesc('created_at')->get();
-        return view('Website.posts',compact('posts'));
+    public function user_search(Request $request){
+        $musical_genre=$request->input('musical_genre');
+        $instrument=$request->input('instrument');
+        $other_services=$request->input('other_services');
+        $categories = User::query();
+        $username = $request->input('username');
+        if ($username) {
+            $categories->select('name')
+                       ->orWhere('name', 'LIKE', '%' . $username . '%');
+        }
+        $posts = $categories->get();
+    // Where('name', 'like', '%' . Input::get('name') . '%')->get()
+            // $posts = Category::orderByDesc('created_at')->get();
+// dd($posts);
+    return view('Website.posts',compact('posts'));
+    }
+    public function posts(Request $request){
+        $category=$request->input('category');
+        $skills=$request->input('skills');
+        $username=$request->input('username');
+        $musical_genre=$request->input('musical_genre');
+        $instrument=$request->input('instrument');
+        $other_services=$request->input('other_services');
+        // dd( $category, $skills, $username, $musical_genre,$instrument,$other_services);
+        $categories = Category::query();
+if ($category) {
+    $categories->orWhere('category', $category);
+}
+if ($skills) {
+    $categories->orWhere('skill_level', $skills);
+}
+
+if ($username) {
+    $categories->orWhere('first_name', 'LIKE', '%' . $username . '%');
+}
+
+if ($musical_genre) {
+    $categories->orWhere('musical_genre', $musical_genre);
+}
+
+if ($instrument) {
+    $categories->orWhere('instrument', $instrument);
+}
+
+if ($other_services) {
+    $categories->orWhere('other_services', $other_services);
+}
+
+$posts = $categories->get();
+// Where('name', 'like', '%' . Input::get('name') . '%')->get()
+        // $posts = Category::orderByDesc('created_at')->get();
+
+return view('Website.posts',compact('posts'));
     }
     public function single_post($id){
         $post=category::where('id',$id)->first();
@@ -185,14 +238,27 @@ public function user_logout(Request $request){
 session()->forget('user');
 return redirect()->route('/')->with('success','Logout successfully');
 }
-public function message_send(Request $request){
+
+public function apply($id){
+$post=category::where('id',$id)->first();
+$id=$post->id;
+return view('Website.message',compact('id'));
+}
+    public function message_send(Request $request , $id){
+
+
     $request->validate(['message'=>'required|string']);
-$sender=session('user')->name;
-$content=$request->message;
-Mail::raw($content, function ($message) {
-    $message->to('zubair918sharif@gmail.com')
-      ->subject(session('user')->email);
-  });
+    $receiver=category::where('id',$id)->first();
+    $sender=session('user')->email;
+    $content='Message :'. $request->message;
+    Mail::raw($content, function ($message) use ($receiver, $sender) {
+        $message->to($receiver->email)
+            ->subject('Message from ' . $sender);
+    });
+
+
+
+
 return redirect()->back()->with('success',"Message has been sent to email");
 }
 

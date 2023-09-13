@@ -16,6 +16,7 @@
                                 </div>
                                 <form action="form_submission" method="POST">
                                     @csrf
+                                    <input type="hidden" name="category" value="available">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-field-main">

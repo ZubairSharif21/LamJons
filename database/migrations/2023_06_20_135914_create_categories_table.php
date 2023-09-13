@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('other_services',25)->nullable();
             $table->string('skill_level',55)->nullable();
             $table->string('message',255)->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

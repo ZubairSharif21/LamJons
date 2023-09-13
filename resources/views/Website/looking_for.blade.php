@@ -28,6 +28,8 @@
 								<p>You're the one in charge. It's your idea, your project, your baby. But you need some finishing touches. Create an ad to recruit the talent that will make your project pop.</p>
 							</div>
                             <form action="form_submission" method="POST">
+                                <input type="hidden" name="category" value="looking_for">
+
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

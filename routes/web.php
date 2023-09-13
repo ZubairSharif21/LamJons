@@ -90,8 +90,8 @@ Route::middleware(['user_auth'])->group(function () {
 
 Route::view('signin','Website.signin_page')->name('signin');
 Route::view('forum','Website.looking_for');
-Route::view('message','Website.message')->name('message');
-Route::get('browse_posts',[WebController::class,'posts'])->name('posts');
+Route::get('Apply-Post/{id}',[WebController::class,'apply'])->name('applied');
+Route::get('browse_posts',[WebController::class,'posts'])->name('browse_posts');
 Route::post('signup_user',[WebController::class,'signup_user'])->name('signup_user');
 Route::get('view_post/{id}',[WebController::class,'single_post'])->name('posts');
 Route::middleware('auth_check')->group(function () {
@@ -106,7 +106,7 @@ Route::view('looking-for','Website.looking_for');
 Route::view('hired-gun','Website.hired_gun');
 
 Route::get('user-logout',[WebController::class,'user_logout'])->name('user-logout');
-Route::post('message_send',[WebController::class,'message_send'])->name('message_send');
+Route::post('/message/send/{id}',[WebController::class,'message_send'])->name('message_send');
 });
 
 
@@ -115,9 +115,12 @@ Route::post('message_send',[WebController::class,'message_send'])->name('message
 Route::view('create_post','Website.create-posts')->name('create-post');
 Route::view('faq','Website.faq')->name('faq');
 Route::view('skill-level','Website.skill-level')->name('skill-level');
+Route::view('browse-posts','Website.browse-posts')->name('browse-posts');
 Route::post('form_submission',[WebController::class, 'form_submission'])->name('form_submission');
 
 
 
 Route::post('user-login',[WebController::class, 'user_login'])->name('user_login');
+Route::post('user_search',[WebController::class, 'user_search'])->name('user_search');
+Route::view('user-search','Website.search_user');
 

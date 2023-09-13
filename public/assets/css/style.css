@@ -350,11 +350,10 @@ footer {
 }
 
 /* Form page */
-
-
 #main-pages {
 	background-color: #f2f71a;
 	padding: 8em;
+    min-height:80vh;
 }
 
 #main-pages.lines-bg {
