@@ -57,7 +57,6 @@
 
             font-weight: bold;
             line-height: 2.4;
-
         }
 
         .link-tags li {
@@ -72,6 +71,7 @@
     left: 46vw;
     border-radius: 50%;
 }
+
 
         .profile img {
             display: block;
@@ -167,7 +167,7 @@
                                 </div>
                             </div>
                             <ul>
-                                <button class="links  bg-light fw-bold  mt-5 ">
+                                <button class="links -light fw-bold  mt-5 ">
                                     {{-- <a href="{{ route('message') }}">Message "{{ $user->name }}"</a></button> --}}
                                     {{ $user->name }}
                                     @if ($user->first_link)
@@ -229,16 +229,17 @@
                                 </div>
                             </div>
                         </div>
-
+                        <a href="{{ route('edit-profile') }}"> <button class="links rounded-pill bg-info fw-bold">
+                                Edit Profile</button></a>
                     </div>
                 </div>
                 <div class="carasoul">
                     <div class="col-lg-10 col-md-12 text-center mt-5 pb-5" style="padding-bottom: 84px !important;">
-                        <div class="d-flex  justify-content-between" style="height: 200px !important">
+                        <div class="d-flex justify-content-between" style="height: 200px !important">
 
                             @if ($user->first_image)
                                 <div class="col-lg-2 col-md-12">
-                                    <img src="{{asset($user->first_image) }}" width="200px" alt="..."
+                                    <img src="{{ $user->first_image }}" width="200px" alt="..."
                                         class="img-thumbnail">
 
                                 </div>
@@ -251,7 +252,7 @@
                             @endif
                             @if ($user->second_image)
                                 <div class="col-lg-2 col-md-12">
-                                    <img src="{{asset($user->second_image) }}" width="200px" alt="..."
+                                    <img src="{{ $user->second_image }}" width="200px" alt="..."
                                         class="img-thumbnail">
 
                                 </div>
@@ -264,7 +265,7 @@
                             @endif
                             @if ($user->third_image)
                                 <div class="col-lg-2 col-md-12">
-                                    <img src="{{asset($user->third_image) }}" width="200px" alt="..."
+                                    <img src="{{ $user->third_image }}" width="200px" alt="..."
                                         class="img-thumbnail">
 
                                 </div>
@@ -277,7 +278,7 @@
                             @endif
                             @if ($user->four_image)
                                 <div class="col-lg-2 col-md-6">
-                                    <img src="{{asset($user->four_image) }}" width="200px" alt="..."
+                                    <img src="{{ $user->four_image }}" width="200px" alt="..."
                                         class="img-thumbnail">
 
                                 </div>
@@ -290,7 +291,7 @@
                             @endif
                             @if ($user->five_image)
                                 <div class="col-lg-2 col-md-6">
-                                    <img src="{{asset($user->five_image)  }}" width="200px" alt="..."
+                                    <img src="{{ $user->five_image }}" width="200px" alt="..."
                                         class="img-thumbnail">
 
                                 </div>

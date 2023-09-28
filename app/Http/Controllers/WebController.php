@@ -41,22 +41,41 @@ class WebController extends Controller
         $categories->save();
         return redirect()->route('browse_posts')->with('success','Form has been submit');
     }
-    public function user_search(Request $request){
-        $musical_genre=$request->input('musical_genre');
-        $instrument=$request->input('instrument');
-        $other_services=$request->input('other_services');
-        $categories = User::query();
+
+    public function user_search(Request $request) {
         $username = $request->input('username');
+        $musicalGenre = $request->input('musical_genre');
+        $instrument = $request->input('instrument');
+        $otherServices = $request->input('other_services');
+
+        $users = User::query();
+
+        // Apply username filter if provided
         if ($username) {
-            $categories->select('name')
-                       ->orWhere('name', 'LIKE', '%' . $username . '%');
+            $users->where('name', 'LIKE', '%' . $username . '%');
         }
-        $posts = $categories->get();
-    // Where('name', 'like', '%' . Input::get('name') . '%')->get()
-            // $posts = Category::orderByDesc('created_at')->get();
-// dd($posts);
-    return view('Website.posts',compact('posts'));
+
+
+        if ($musicalGenre || $instrument || $otherServices) {
+            $users->whereHas('category', function ($query) use ($musicalGenre, $instrument, $otherServices) {
+                if ($musicalGenre) {
+                    $query->where('musical_genre', $musicalGenre);
+                }
+                if ($instrument) {
+                    $query->where('instrument', $instrument);
+                }
+                if ($otherServices) {
+                    $query->where('other_services', $otherServices);
+                }
+            });
+        }
+        // Retrieve the users with applied filters
+        $users = $users->where('account_type', 'user')->get();
+
+        return view('Website.users', compact('users'));
     }
+
+
     public function posts(Request $request){
         $category=$request->input('category');
         $skills=$request->input('skills');
@@ -118,13 +137,17 @@ return view('Website.posts',compact('posts'));
         return redirect(route('welcome'))->with('success','You have Signup Successfully');
 
     }
-    public function profile(){
-
-        $users=session('user');
-        $user=User::where('id',$users->id)->first();
+    public function profile($id){
+        $user=User::where('id',$id)->first();
         return view('Website.artists',compact('user'));
     }
-    public function edit_profile(){
+    public function user_profile(){
+        $users=session('user');
+        $user=User::where('id',$users->id)->first();
+        return view('Website.user-profile',compact('user'));
+
+    }
+      public function edit_profile(){
         $users=session('user');
         $user=User::where('id',$users->id)->first();
         return view('Website.edit-artist',compact('user'));
@@ -133,14 +156,14 @@ return view('Website.posts',compact('posts'));
     public function update_profile(Request $request)
     {
     $request->validate([
-        'profile_pic' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'first_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'second_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'second_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'third_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'four_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'five_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
-        'background_image' => 'sometimes|required|file|mimes:jpg,png,jpeg|max:2048',
+        'profile_pic' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'first_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'second_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'second_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'third_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'four_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'five_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
+        'background_image' => 'sometimes|required|file|mimes:jpg,png,jpeg,webp,gif|max:2048',
     ]);
 
     $session = session('user');

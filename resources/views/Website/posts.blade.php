@@ -103,8 +103,10 @@ Home Page
                     </div>
                     <hr>
                      --}}
+
+
                      <div class="row mb-3 " style="background: #E8E6E6">
-                        <div class="col-lg-6 col-md-12 col-sm-12 px-5 py-3"><h4>{{ $post->message }}</h4>
+                        <div class="col-lg-6 col-md-12 col-sm-12 px-5 py-3"><h4>{{ \Illuminate\Support\Str::limit($post->message, 30, $end='...') }}</h4>
                         <p>{{ $post->first_name }}, {{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y') }}</p></div>
                         <div class="col-lg-6 col-md-12 col-sm-12 px-5 py-2 d-flex align-items-center justify-content-end">
                             <a  class="text-dark  btn  py-2 view-post " href="view_post/{{ $post->id }}">View Post</a>

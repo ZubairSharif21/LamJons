@@ -54,7 +54,7 @@ lamjons
                     <div class="bg-button2"></div>
                 </div>
                 <div class="main-button">
-                    <a href="{{ route('profile') }}"><button type="button" class="custom-btn">Browse Artists    </button></a>
+                    <a href="{{ route('user-search') }}"><button type="button" class="custom-btn">Browse Artists    </button></a>
 
                     <div class="bg-button"></div>
                     <div class="bg-button2"></div>

@@ -96,7 +96,8 @@ Route::post('signup_user',[WebController::class,'signup_user'])->name('signup_us
 Route::get('view_post/{id}',[WebController::class,'single_post'])->name('posts');
 Route::middleware('auth_check')->group(function () {
 
-    Route::get('profile',[WebController::class,'profile'])->name('profile');
+    Route::get('profile/{id}',[WebController::class,'profile'])->name('profile');
+    Route::get('User-Profile',[WebController::class,'user_profile'])->name('user_profile');
     Route::get('edit/profile',[WebController::class,'edit_profile'])->name('edit-profile');
 Route::post('update/profile',[WebController::class,'update_profile'])->name('update-profile');
 Route::view('welcome','Website.welcome')->name('welcome');
@@ -122,5 +123,5 @@ Route::post('form_submission',[WebController::class, 'form_submission'])->name('
 
 Route::post('user-login',[WebController::class, 'user_login'])->name('user_login');
 Route::post('user_search',[WebController::class, 'user_search'])->name('user_search');
-Route::view('user-search','Website.search_user');
+Route::view('user-search','Website.search_user')->name('user-search');
 

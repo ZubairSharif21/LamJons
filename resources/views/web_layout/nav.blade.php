@@ -28,15 +28,14 @@
             </div>
             <div class="links-header text-right">
                 @if (session('user'))
+                <a href="{{ route('user_profile') }}" >Profile</a>
                     <a href="{{ route('user-logout') }}">Logout</a>
+
                 @else
                     <a href="javascript:void()" class="text-start" data-bs-toggle="modal" data-bs-target="#exampleModal">Member Sign In</a>
                     <a href="javascript:void()" >Lam Jones Merch</a>
                 @endif
-                <!-- Button trigger modal -->
-                {{-- <button type="button" class="btn btn-primary" >
-    Launch demo modal
-  </button> --}}
+
 
             </div>
         </div>

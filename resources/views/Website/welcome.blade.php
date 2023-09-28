@@ -19,7 +19,22 @@
         .main-buttons{
             background-color: #f2f71a !important;
         }
+        @media screen and (min-width: 300px) and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px   ;
+  }
+  .d-flex{
+    flex-direction: column;
+    margin-top: 25px;
+    align-items: center;
 
+  }
+  #main-pages {
+    height: auto;
+  }
+}
     </style>
 @endsection
 @section('title')
@@ -29,7 +44,7 @@
     <main>
         <section id="main-pages" class="">
 <div class="row">
-    <div class="col-8">
+    <div class="col-lg-8 col-md-10">
         <h1 class="text-center py-5">
             Congrats! <br>
             You Have Joined
@@ -55,7 +70,7 @@
             </div>
     </div>
     </div>
-    <div class="col-2">
+    <div class="col-lg-2 ">
         <div class="d-flex h-100 justify-content-center align-items-center">
 <div class="d-flex flex-column h-50 justify-content-around">
     <div class="main-button">

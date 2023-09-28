@@ -278,7 +278,7 @@ section#logo-section-main {
     border: none;
     font-family: 'Enriqueta', serif;
     font-size: 20px;
-    min-width: 200px;
+    min-width: 100%;
 }
 
 .main-button button:hover {
@@ -566,9 +566,7 @@ footer {
     .new-buttons-main {
         padding: 0 15px;
     }
-	.main-button button {
-		width: 100%;
-	}
+
 	.align-form {
 		max-width: 100%;
 	}
@@ -582,12 +580,8 @@ footer {
     .align-form.available-form {
         padding-top: 4em;
     }
-    .bg-button2 {
-        bottom: -26px;
-    }
-    .bg-button {
-        top: -20px;
-    }
+
+
 }
 
 @media screen and (max-width: 580px) {

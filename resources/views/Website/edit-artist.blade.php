@@ -27,22 +27,23 @@
             background-color: #000;
             padding: 5px 0 !important;
         }
-        .background-image img {
-    height: 253px !important;
-    margin-top: 70px !important;
-    position: relative;
-    object-fit: fill;
-}
 
-.images_footer img{
-max-height: 140px;
-min-height: 140px;
-}
+        .background-image img {
+            height: 253px !important;
+            margin-top: 70px !important;
+            position: relative;
+            object-fit: fill;
+        }
+
+        .images_footer img {
+            max-height: 140px;
+            min-height: 140px;
+        }
 
         .links {
             background: lavender;
             padding: 10px;
-            border-radius: 50%;
+            border-radius: 15%;
             margin: 20px
         }
 
@@ -56,7 +57,6 @@ min-height: 140px;
         }
 
         .link-tags {
-
             font-weight: bold;
             line-height: 2.4;
 
@@ -67,13 +67,13 @@ min-height: 140px;
         }
 
         .profile {
-            margin: 20px auto;
-            max-width: 164px;
-            position: absolute;
-            top: 30vh;
-            left: 44vw;
-            border-radius: 50%;
-        }
+    margin: 20px auto;
+    max-width: 164px;
+    position: absolute;
+    top: 25vh;
+    left: 46vw;
+    border-radius: 50%;
+}
 
         .profile:hover .overlay {
             background-color: rgba(0, 0, 0, 0.5);
@@ -140,7 +140,12 @@ min-height: 140px;
                 <form action="{{ route('update-profile') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="background-image">
-                        <img src="{{ asset($user->background_image) }}" alt="" class="w-100 mt-1">
+                        @if ($user->background_image)
+                            <img src="{{ asset($user->background_image) }}" alt="" class="w-100 mt-1">
+                        @else
+                            <img src="{{ asset('assets/PlaceHolder.png') }}" width="100%" class="w-100 mt-1"
+                                alt="...">
+                        @endif
                     </div>
 
                     <div class="profile">
@@ -159,7 +164,7 @@ min-height: 140px;
             </div>
             <div class="container">
                 <div class="row mt-4 texts">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-md-12">
                         <br>
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">Username</label>
@@ -170,83 +175,110 @@ min-height: 140px;
                         <p class="fw-bold">
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">Description</label>
-                            <textarea name="description" id="description" cols="85" rows="10"> {{ $user->description }}</textarea>
+                            <textarea name="description" class="p-3" id="description" cols="85" rows="10"> {{ $user->description }}</textarea>
                         </div>
 
                         </p>
-<div class="images_footer">
+                        <div class="images_footer">
 
-                        <div class="row  align-items-center ">
-                            <div class="col-3">
-                                <img src="{{ asset($user->first_image) }}" alt="Image Not Found" class="mb-2" width="100%">
+                            <div class="row  align-items-center ">
+                                <div class="col-3">
 
+                                    @if ($user->first_image)
+                                        <img src="{{ asset($user->first_image) }}" alt="Image Not Found" class="mb-2"
+                                            width="100%">
+                                    @else
+                                        <img src="{{ asset('assets/PlaceHolder.png') }}" width="100%" class="w-100 my-2"
+                                            alt="...">
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleInputUsername1" class="form-label">1st Image</label>
+                                    <input type="file" name="first_image" class="form-control w-100"
+                                        id="exampleInputUsername1" aria-describedby="UsernameHelp">
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <label for="exampleInputUsername1" class="form-label">1st Image</label>
-                                <input type="file" name="first_image" class="form-control w-100"
-                                    id="exampleInputUsername1" aria-describedby="UsernameHelp">
+
+
+                            <div class="row  align-items-center ">
+                                <div class="col-3">
+                                    @if ($user->second_image)
+                                        <img src="{{ asset($user->second_image) }}" alt="Image Not Found" class="mb-2"
+                                            width="100%">
+                                    @else
+                                        <img src="{{ asset('assets/PlaceHolder.png') }}" width="100%" class="w-100 my-2"
+                                            alt="...">
+                                    @endif
+                                </div>
+                                <div class="col-6">
+
+                                    <label for="exampleInputUsername1" class="form-label">2nd Image</label>
+                                    <input type="file" name="second_image" class="form-control"
+                                        id="exampleInputUsername1" aria-describedby="UsernameHelp">
+                                </div>
                             </div>
+
+
+                            <div class="row  align-items-center ">
+                                <div class="col-3">
+                                    @if ($user->third_image)
+                                        <img src="{{ asset($user->third_image) }}" alt="Image Not Found" class="mb-2"
+                                            width="100%">
+                                    @else
+                                        <img src="{{ asset('assets/PlaceHolder.png') }}" width="100%" class="w-100 my-2"
+                                            alt="...">
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleInputUsername1" class="form-label">3rd Image</label>
+                                    <input type="file" name="third_image" class="form-control"
+                                        id="exampleInputUsername1" aria-describedby="UsernameHelp">
+                                </div>
+                            </div>
+
+
+
+                            <div class="row  align-items-center ">
+                                <div class="col-3">
+                                    @if ($user->four_image)
+                                        <img src="{{ asset($user->four_image) }}" alt="Image Not Found" class="mb-2"
+                                            width="100%">
+                                    @else
+                                        <img src="{{ asset('assets/PlaceHolder.png') }}" width="100%"
+                                            class="w-100 my-2" alt="...">
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleInputUsername1" class="form-label">4th Image</label>
+                                    <input type="file" name="four_image" class="form-control"
+                                        id="exampleInputUsername1" aria-describedby="UsernameHelp">
+                                </div>
+                            </div>
+
+
+                            <div class="row  align-items-center ">
+                                <div class="col-3">
+
+                                    @if ($user->five_image)
+                                        <img src="{{ asset($user->five_image) }}" alt="Image Not Found" class="mb-2"
+                                            width="100%">
+                                    @else
+                                        <img src="{{ asset('assets/PlaceHolder.png') }}" width="100%"
+                                            class="w-100 my-2" alt="...">
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleInputUsername1" class="form-label">5th Image</label>
+                                    <input type="file" name="five_image" class="form-control"
+                                        id="exampleInputUsername1" aria-describedby="UsernameHelp">
+                                </div>
+                            </div>
+
+
                         </div>
-
-
-                        <div class="row  align-items-center ">
-                            <div class="col-3">
-                                <img src="{{ asset($user->second_image) }}" class="mb-2" alt="Image Not Found" width="100%">
-
-                            </div>
-                            <div class="col-6">
-
-                                <label for="exampleInputUsername1" class="form-label">2nd Image</label>
-                                <input type="file" name="second_image" class="form-control" id="exampleInputUsername1"
-                                    aria-describedby="UsernameHelp">
-                            </div>
-                        </div>
-
-
-                        <div class="row  align-items-center ">
-                            <div class="col-3">
-                                <img src="{{ asset($user->third_image) }}" class="mb-2" alt="Image Not Found" width="100%">
-
-                            </div>
-                            <div class="col-6">
-                                <label for="exampleInputUsername1" class="form-label">3rd Image</label>
-                                <input type="file" name="third_image" class="form-control" id="exampleInputUsername1"
-                                    aria-describedby="UsernameHelp">
-                            </div>
-                        </div>
-
-
-
-                        <div class="row  align-items-center ">
-                            <div class="col-3">
-                                <img src="{{ asset($user->four_image) }}" class="mb-2" alt="Image Not Found" width="100%">
-
-                            </div>
-                            <div class="col-6">
-                                <label for="exampleInputUsername1" class="form-label">4th Image</label>
-                                <input type="file" name="four_image" class="form-control" id="exampleInputUsername1"
-                                    aria-describedby="UsernameHelp">
-                            </div>
-                        </div>
-
-
-                        <div class="row  align-items-center ">
-                            <div class="col-3">
-                                <img src="{{ asset($user->five_image) }}" alt="Image Not Found" width="100%">
-
-                            </div>
-                            <div class="col-6">
-                                <label for="exampleInputUsername1" class="form-label">5th Image</label>
-                                <input type="file" name="five_image" class="form-control" id="exampleInputUsername1"
-                                    aria-describedby="UsernameHelp">
-                            </div>
-                        </div>
-
-
                     </div>
-                    </div>
 
-                    <div class="col-5">
+                    <div class="col-lg-5 col-md-12">
                         <label class="text-center fw-bold w-100" for="Background-pic">Background Image</label>
                         <div class="links rounded-pill  fw-bold text-center">
 
@@ -327,7 +359,7 @@ min-height: 140px;
 
 
             </div>
-            <div class="text-center pb-5"> <button type="submit" class="links rounded-pill bg-info fw-bold">
+            <div class="text-center pb-5"> <button type="submit" class="links  bg-info fw-bold">
                     Click here for Update </button>
             </div>
             </form>
